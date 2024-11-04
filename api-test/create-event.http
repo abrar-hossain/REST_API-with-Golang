@@ -1,10 +1,10 @@
-POST http://lcalhost:8080/events
+POST http://localhost:8080/events
 
 content-type: application/json
-Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IiIsImV4cCI6MTcyOTkwMzg0MywidXNlcklkIjoiICJ9.Q-_0zTf-cQTv30GAZsIt_K5UU4MK5WhKAjjSuuvQIUc
+
 {
-    "name":"test event",
-    "description" : "a test event",
-    "location": "a test l0cation",
+    "name":"manchester festival",
+    "description" : "festival",
+    "location": "Manchester",
     "dateTime":"2025-01-01T15:30:00.000Z"
 }

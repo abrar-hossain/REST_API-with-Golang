@@ -2,6 +2,7 @@ package routes
 
 import (
 	"net/http"
+
 	"res_api/models"
 	"res_api/utiles"
 
@@ -24,6 +25,7 @@ func signup(context *gin.Context) {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not save user."})
 		return
 	}
+
 	context.JSON(http.StatusCreated, gin.H{"message": "User created successfully"})
 }
 
@@ -45,10 +47,11 @@ func login(context *gin.Context) {
 	}
 
 	token, err := utiles.GenerateToken(user.Email, user.ID)
+
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not authenticate user."})
 		return
 	}
-	context.JSON(http.StatusOK, gin.H{"message": "login successful", "token": token})
 
+	context.JSON(http.StatusOK, gin.H{"message": "Login successful!", "token": token})
 }

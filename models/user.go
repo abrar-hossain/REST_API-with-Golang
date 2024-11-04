@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+
 	"res_api/db"
 	"res_api/utiles"
 )
@@ -23,18 +24,21 @@ func (u User) Save() error {
 	defer stmt.Close()
 
 	hashedPassword, err := utiles.HashPassword(u.Password)
+
 	if err != nil {
 		return err
 	}
 
 	result, err := stmt.Exec(u.Email, hashedPassword)
+
 	if err != nil {
 		return err
 	}
+
 	userId, err := result.LastInsertId()
+
 	u.ID = userId
 	return err
-
 }
 
 func (u *User) ValidateCredentials() error {
